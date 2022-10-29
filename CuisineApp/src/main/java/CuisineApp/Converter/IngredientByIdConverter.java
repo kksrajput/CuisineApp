@@ -20,8 +20,8 @@ public class IngredientByIdConverter implements Converter<String,Ingredient>{
 				new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
 		ingredientMap.put("COTO", 
 				new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
-		ingredientMap.put("GRBF", 
-				new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));
+		ingredientMap.put("GRE", 
+				new Ingredient("GRE", "Ground Egg", Type.PROTEIN));
 		ingredientMap.put("CARN", 
 				new Ingredient("CARN", "Carnitas", Type.PROTEIN));
 		ingredientMap.put("TMTO", 

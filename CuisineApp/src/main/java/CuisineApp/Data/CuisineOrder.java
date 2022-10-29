@@ -1,96 +1,115 @@
 package CuisineApp.Data;
 
 import java.util.List;
+
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
 import java.util.ArrayList;
 import lombok.Data;
- 
+
 @Data
 public class CuisineOrder {
- 
-  private String deliveryName;
-  private String deliveryStreet;
-  private String deliveryCity;
-  private String deliveryState;
-  private String deliveryZip;
-  private String ccNumber;
-  private String ccExpiration;
-  private String ccCVV;
- 
-  private List<Cuisine> cuisines = new ArrayList<>();
- 
-  public void addCuisine(Cuisine cu) {
-    this.cuisines.add(cu);
-  }
+	@NotBlank(message = "Delivery Name is required")
+	private String deliveryName;
+	
+	@NotBlank(message = "Delivery Street is required")
+	private String deliveryStreet;
+	
+	@NotBlank(message = "City is required")
+	private String deliveryCity;
+	
+	@NotBlank(message = "State is required")
+	private String deliveryState;
+	
+	@NotBlank(message = "Zip is required")
+	private String deliveryZip;
+	
+	@NotBlank(message = "Credit Card No. is required")
+	private String ccNumber;
+	
+	@Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$",message = "Must be formatted MM/YY")
+	private String ccExpiration;
+	
+	@Digits(integer = 3,fraction = 0, message = "Invalid CVV")
+	private String ccCVV;
 
-public String getDeliveryName() {
-	return deliveryName;
-}
+	private List<Cuisine> cuisines = new ArrayList<>();
 
-public void setDeliveryName(String deliveryName) {
-	this.deliveryName = deliveryName;
-}
+	public void addCuisine(Cuisine cu) {
+		this.cuisines.add(cu);
+	}
 
-public String getDeliveryStreet() {
-	return deliveryStreet;
-}
+	public String getDeliveryName() {
+		return deliveryName;
+	}
 
-public void setDeliveryStreet(String deliveryStreet) {
-	this.deliveryStreet = deliveryStreet;
-}
+	public void setDeliveryName(String deliveryName) {
+		this.deliveryName = deliveryName;
+	}
 
-public String getDeliveryCity() {
-	return deliveryCity;
-}
+	public String getDeliveryStreet() {
+		return deliveryStreet;
+	}
 
-public void setDeliveryCity(String deliveryCity) {
-	this.deliveryCity = deliveryCity;
-}
+	public void setDeliveryStreet(String deliveryStreet) {
+		this.deliveryStreet = deliveryStreet;
+	}
 
-public String getDeliveryState() {
-	return deliveryState;
-}
+	public String getDeliveryCity() {
+		return deliveryCity;
+	}
 
-public void setDeliveryState(String deliveryState) {
-	this.deliveryState = deliveryState;
-}
+	public void setDeliveryCity(String deliveryCity) {
+		this.deliveryCity = deliveryCity;
+	}
 
-public String getDeliveryZip() {
-	return deliveryZip;
-}
+	public String getDeliveryState() {
+		return deliveryState;
+	}
 
-public void setDeliveryZip(String deliveryZip) {
-	this.deliveryZip = deliveryZip;
-}
+	public void setDeliveryState(String deliveryState) {
+		this.deliveryState = deliveryState;
+	}
 
-public String getCcNumber() {
-	return ccNumber;
-}
+	public String getDeliveryZip() {
+		return deliveryZip;
+	}
 
-public void setCcNumber(String ccNumber) {
-	this.ccNumber = ccNumber;
-}
+	public void setDeliveryZip(String deliveryZip) {
+		this.deliveryZip = deliveryZip;
+	}
 
-public String getCcExpiration() {
-	return ccExpiration;
-}
+	public String getCcNumber() {
+		return ccNumber;
+	}
 
-public void setCcExpiration(String ccExpiration) {
-	this.ccExpiration = ccExpiration;
-}
+	public void setCcNumber(String ccNumber) {
+		this.ccNumber = ccNumber;
+	}
 
-public String getCcCVV() {
-	return ccCVV;
-}
+	public String getCcExpiration() {
+		return ccExpiration;
+	}
 
-public void setCcCVV(String ccCVV) {
-	this.ccCVV = ccCVV;
-}
+	public void setCcExpiration(String ccExpiration) {
+		this.ccExpiration = ccExpiration;
+	}
 
-public List<Cuisine> getCuisines() {
-	return cuisines;
-}
+	public String getCcCVV() {
+		return ccCVV;
+	}
 
-public void setCuisines(List<Cuisine> cuisines) {
-	this.cuisines = cuisines;
-}
+	public void setCcCVV(String ccCVV) {
+		this.ccCVV = ccCVV;
+	}
+
+	public List<Cuisine> getCuisines() {
+		return cuisines;
+	}
+
+	public void setCuisines(List<Cuisine> cuisines) {
+		this.cuisines = cuisines;
+	}
 }
