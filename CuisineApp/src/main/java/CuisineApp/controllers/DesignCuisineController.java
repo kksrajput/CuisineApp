@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import CuisineApp.Data.Cuisine;
 import CuisineApp.Data.CuisineOrder;
 import CuisineApp.Data.Ingredient.Type;
+import CuisineApp.Repos.intf.IngredientRepository;
 import CuisineApp.Data.Ingredient;
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,10 +31,17 @@ public class DesignCuisineController {
 
 	private static final org.slf4j.Logger log =
 			org.slf4j.LoggerFactory.getLogger(DesignCuisineController.class);
+	
+	private IngredientRepository ingreRepo;
+	
+	public DesignCuisineController(IngredientRepository ingreRepo) {
+		this.ingreRepo = ingreRepo;
+	}
 
 	@ModelAttribute
 	public void addIngredientsToModel(Model model) {
-		List<Ingredient> ingredients = Arrays.asList(
+		Iterable<Ingredient> ingredients = ingreRepo.findByAll();
+		/*List<Ingredient> ingredients2= Arrays.asList(
 				new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
 				new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
 				new Ingredient("GRE", "Ground Egg", Type.PROTEIN),
@@ -44,12 +52,12 @@ public class DesignCuisineController {
 				new Ingredient("JACK", "Monterrey Jack", Type.CHEESE),
 				new Ingredient("SLSA", "Salsa", Type.SAUCE),
 				new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
-				);
+				);*/
 
 		Type[] types = Ingredient.Type.values();
 		for (Type type : types) {
 			model.addAttribute(type.toString().toLowerCase(),
-					filterByType(ingredients, type));
+					filterByType((List<Ingredient>) ingredients, type)); //check
 		}
 	}
 
