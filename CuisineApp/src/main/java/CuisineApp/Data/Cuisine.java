@@ -1,4 +1,5 @@
 package CuisineApp.Data;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -8,6 +9,10 @@ import lombok.Data;
  
 @Data
 public class Cuisine {
+	
+	private long id;
+	
+	private Date createdAt = new Date();
  
   @NotNull
   @Size(min = 3, message = "Name must be 3 characters long")
@@ -31,6 +36,22 @@ public List<Ingredient> getIngredients() {
 
 public void setIngredients(List<Ingredient> ingredients) {
 	this.ingredients = ingredients;
+}
+
+public Date getCreatedAt() {
+	return createdAt;
+}
+
+public void setCreatedAt(Date createdAt) {
+	this.createdAt = createdAt;
+}
+
+public long getId() {
+	return id;
+}
+
+public void setId(long id) {
+	this.id = id;
 }
  
 }

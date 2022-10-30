@@ -7,10 +7,17 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 import java.util.ArrayList;
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
 public class CuisineOrder {
+	
+	private long id;
+	
+	private Date placedAt;
+	
 	@NotBlank(message = "Delivery Name is required")
 	private String deliveryName;
 	
@@ -111,5 +118,21 @@ public class CuisineOrder {
 
 	public void setCuisines(List<Cuisine> cuisines) {
 		this.cuisines = cuisines;
+	}
+
+	public Date getPlacedAt() {
+		return placedAt;
+	}
+
+	public void setPlacedAt(Date placedAt) {
+		this.placedAt = placedAt;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

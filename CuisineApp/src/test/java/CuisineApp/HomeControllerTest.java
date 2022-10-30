@@ -11,9 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import CuisineApp.controllers.HomeController;
+import CuisineApp.controllers.WebConfig;
 
-@WebMvcTest(HomeController.class)                
+@WebMvcTest(WebConfig.class)                
 public class HomeControllerTest {
 
 	@Autowired
