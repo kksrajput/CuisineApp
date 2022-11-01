@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import CuisineApp.Data.CuisineOrder;
+import CuisineApp.Repos.intf.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -22,6 +23,10 @@ public class OrdersController {
 	private static final org.slf4j.Logger log =
 			org.slf4j.LoggerFactory.getLogger(DesignCuisineController.class);
 	
+	private OrderRepository orderRepo;
+	public OrdersController(OrderRepository orderRepo) {
+		this.orderRepo = orderRepo;
+	}
 	@GetMapping("/current")
 	public String orderForm() {
 		return "orderForm";
@@ -31,6 +36,7 @@ public class OrdersController {
 		if(errors.hasErrors()) {
 			return "orderForm";
 		}
+		orderRepo.save(cuisineOrder);
 		log.info("Order Done {}",cuisineOrder);
 		sessionStatus.setComplete();
 		return "redirect:/";
