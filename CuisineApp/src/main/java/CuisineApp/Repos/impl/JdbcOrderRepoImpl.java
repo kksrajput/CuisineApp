@@ -19,7 +19,7 @@ import CuisineApp.Data.IngredientRef;
 import CuisineApp.Repos.intf.OrderRepository;
 
 @Repository
-public class JdbcOrderRepoImpl implements OrderRepository{
+public abstract class JdbcOrderRepoImpl implements OrderRepository{
 	
 	private JdbcOperations jdbcOperations;
 	

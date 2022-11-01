@@ -13,7 +13,7 @@ import CuisineApp.Data.Ingredient;
 import CuisineApp.Repos.intf.IngredientRepository;
 
 @Repository
-public class JdbcIngredientRepositoryImpl implements IngredientRepository{
+public abstract class JdbcIngredientRepositoryImpl implements IngredientRepository{
 	
 	private JdbcTemplate jdbcTemplate;
 	
