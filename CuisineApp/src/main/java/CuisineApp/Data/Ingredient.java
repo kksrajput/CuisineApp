@@ -1,10 +1,19 @@
 package CuisineApp.Data;
 
 
+import org.springframework.data.domain.Persistable;
+import org.springframework.data.relational.core.mapping.Table;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
  
 @Data
-public class Ingredient {
+@Table
+@AllArgsConstructor
+@NoArgsConstructor(access=AccessLevel.PRIVATE, force = true)
+public class Ingredient implements Persistable<String>{
   
   private String id;
   private String name;
@@ -43,6 +52,12 @@ public Type getType() {
 
 public void setType(Type type) {
 	this.type = type;
+}
+
+@Override
+public boolean isNew() {
+	// TODO Auto-generated method stub
+	return false;
 }
  
 }

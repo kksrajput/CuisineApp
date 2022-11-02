@@ -40,7 +40,7 @@ public class DesignCuisineController {
 
 	@ModelAttribute
 	public void addIngredientsToModel(Model model) {
-		Iterable<Ingredient> ingredients = ingreRepo.findByAll();
+		Iterable<Ingredient> ingredients = ingreRepo.findAll();
 		/*List<Ingredient> ingredients2= Arrays.asList(
 				new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
 				new Ingredient("COTO", "Corn Tortilla", Type.WRAP),

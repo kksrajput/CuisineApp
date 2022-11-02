@@ -6,7 +6,8 @@ import CuisineApp.Data.Ingredient;
 
 public interface IngredientRepository extends CrudRepository<Ingredient,String>{
 
-	Iterable<Ingredient> findByAll();
+//	Iterable<Ingredient> findByAll();
+	Iterable<Ingredient> findAll();
 
 	Optional<Ingredient> findById(String id);
 

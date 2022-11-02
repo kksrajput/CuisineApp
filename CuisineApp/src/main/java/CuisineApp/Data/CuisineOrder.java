@@ -6,12 +6,15 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+import org.springframework.data.relational.core.mapping.Table;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 import lombok.Data;
 
 @Data
+@Table("Cuisine_order")
 public class CuisineOrder {
 	
 	private long id;
